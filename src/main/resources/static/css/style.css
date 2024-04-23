@@ -1,0 +1,40 @@
+#container {
+    text-align: center;
+    padding: 0 300px !important;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%;
+    height: 300px;
+    width: 780px;
+}
+
+.divProduct {
+    height: 170px;
+    width: 170px;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.divProduct .thumbnail {
+}
+
+.divProduct .divPrice .price{
+    color: red;
+    font-size: 50px;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+

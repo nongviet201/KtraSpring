@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-DI/ujsUofwkl7V3eo5/MSsCvbNlrPjkvFDLB9fmgqgjHJVGTVWGNMGnCviBDmSoh" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="title"><h1>Danh Sách Smartphone</h1></div>
+        <div id="content">
+             <div th:each="product : ${pageData.getContent()}">
+                 <div class="divProduct">
+                      <div class="thumbnail"><img  th:src="${product.getThumbnail()}"></div>
+                    <h4 class="name" th:text="${product.getName()}"></h4>
+                     <div class="divPrice">
+                         <div th:if="${product.getPriceDiscount() == null || product.getPriceDiscount() == 0}"><th class="price" th:text="${product.getPrice()}"></th></div>
+                         <div th:if="${product.getPriceDiscount() != null || product.getPriceDiscount() != 0}">
+                         <th class="price" th:text="${product.getPrice() - product.getPriceDiscount()}"></th>
+                         <th class="oldPrice" th:text="${product.getPrice()}"></th>
+                     </div>
+                     </div>
+
+                     <i class="fas fa-star"><span class="rate" th:text="${product.getRating()}"></span></i>
+                 </div>
+             </div>
+        </div>
+        <div class="page">
+            <ul style="display: flex; list-style-type: none" th:if="${pageData.getTotalPages() != 1}">
+                <li th:if="${pageData.getCurrentPage() != 1}">
+                    <button><a th:href="@{/product (page=${pageData.getCurrentPage() - 1})}">Trang trước</a></button>
+                </li>
+
+                <li th:each="number: ${#numbers.sequence(1, pageData.getTotalPages())}">
+                    <button th:styleappend="${number == pageData.getCurrentPage() ? 'background-color: red' : ''}">
+                        <a th:href="@{/product (page=${number})}" th:text="${number}">Trang trước</a>
+                    </button>
+                </li>
+
+                <li th:if="${pageData.getCurrentPage() != pageData.getTotalPages()}">
+                    <button><a th:href="@{/product (page=${pageData.getCurrentPage() + 1})}">Trang sau</a></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
