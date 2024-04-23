@@ -1,40 +1,93 @@
+* {
+    font-family: roboto, serif;
+
+}
+
+body a {
+    text-decoration: none;
+}
+
 #container {
     text-align: center;
-    padding: 0 300px !important;
+    padding: 0 350px !important;
 }
 
 #title {
     display: flex;
     justify-content: center;
+    background-color: #002c3e;
+    color: #F7F8F3;
 }
 
+
 #content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5%;
-    height: 300px;
-    width: 780px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 27px;
+    justify-content: center;
+    height: 100%;
+    padding-top: 5%;
 }
 
 .divProduct {
-    height: 170px;
-    width: 170px;
-    text-align: center;
-    padding-top: 5%;
+    height: 300px;
+    width: 100%;
     padding-bottom: 5%;
+    border: 1px gray solid;
+    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 
 .divProduct .thumbnail {
+    height: 80%;
+    width: 100%;
+    display: block;
+    background-color: gray;
+}
+
+.divProduct .name {
+    font-size: 15px;
+    margin: 5px;
+}
+
+.divProduct .divPrice {
+    text-align: justify;
 }
 
 .divProduct .divPrice .price{
+    font-size: 17px;
     color: red;
-    font-size: 50px;
+}
+
+.divProduct .divPrice .oldPrice{
+    font-size: 12px;
+    color: gray;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.divProduct .bottomTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+.divProduct .bottomTitle .rate {
+    margin-top: 12px;
+    color: #b3b345;
+}
+
+.divProduct .bottomTitle .rate .point {
+    color: #b3b345;
 }
 
 .page {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
+
+.page li {
+    margin: 0 5px;
+}

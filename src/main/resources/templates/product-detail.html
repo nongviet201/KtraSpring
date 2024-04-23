@@ -1,13 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"><head>
     <meta charset="UTF-8">
     <title>Product Detail</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/styleDetail.css}">
 </head>
 <body>
-    <div id="container">
-        <h1></h1>
+    <div id="containerDetail">
+        <div id="title"><h1>THÔNG TIN SẢN PHẨM</h1></div>
+        <div class="colorDetail"></div>
+        <div id="detail">
+            <div class="divThumbnailDetail"><img th:src="${product.getThumbnail()}" alt=""></div>
+            <div class="contentDetail">
+                <div class="topDetail">
+                    <div class="productName" th:text="${product.getName()}">></div>
+                    <div class="divPrice">
+                        <div th:if="${product.getPriceDiscount() == null && product.getPriceDiscount() == 0}">
+                            <span class="price" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></span>
+                        </div>
+                        <div th:if="${product.getPriceDiscount() != null && product.getPriceDiscount() != 0}">
+                            <div class="price" th:text="${#numbers.formatDecimal(product.getPrice() - product.getPriceDiscount(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></div>
+                            <div class="oldPrice" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="productDescreption" th:text="${product.getDescription()}"></div>
+            </div>
+        </div>
+        <div class="colorDetail"></div>
+        <div class="colorReview"></div>
+        <div id="divReview">
+            <div class="commentTitle">Đánh giá</div>
+            <div class="review">
+                <div th:each="review: ${product.getReviews()}">
+                    <div class="author">
+                        <div class="avatar"><img th:src="${review.getAuthorAvatar()}"></div>
+                        <div class="mainReview">
+                            <div>
+                                <span class="authorName" th:text="${review.getAuthorName()}"></span>
+                                <span class="time" th:text="${review.getCreatedAt()}"></span>
+                            </div>
+                            <div class="rate" th:text="|Rate: ${review.getRating()}|"></div>
+                            <div class="comment" th:text="${review.getContent()}"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="colorReview"></div>
     </div>
 </body>
 </html>

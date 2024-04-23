@@ -1,0 +1,131 @@
+* {
+    font-family: roboto, serif;
+
+}
+
+body {
+    background: #BCD38B;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    background-color: #002c3e;
+    color: #F7F8F3;
+}
+
+/*===============================================*/
+/*                  Product Detail               */
+#containerDetail {
+    text-align: center;
+    padding: 0 200px !important;
+}
+
+.colorDetail {
+    height: 70px;
+    background-color: #F7F8F3;
+}
+
+#detail {
+    display: flex;
+    width: 100%;
+    background-color: #F7F8F3;
+}
+
+#detail .divThumbnailDetail {
+    background-color: #777D71;
+    margin: 0 20px;
+    width: 250px;
+}
+
+#detail .contentDetail {
+    width: 100%;
+    text-align: left;
+    margin-left: 20px;
+}
+
+#detail .contentDetail div {
+    margin: 5px;
+}
+
+#detail .topDetail {
+
+}
+
+#detail .contentDetail .productName {
+    font-size: 60px;
+}
+
+
+#detail .divPrice .price {
+    margin-top: 10px;
+    font-size: 20px;
+    color: red;
+}
+
+#detail .divPrice .oldPrice {
+    font-size: 15px;
+    color: gray;
+    text-decoration: line-through;
+}
+
+#detail .productDescreption {
+    font-size: 15px;
+    margin: 15px !important;
+    color: #6e6868;
+}
+
+/*================*/
+
+#divReview {
+    background-color: #E9E7DD;
+}
+
+#divReview .commentTitle {
+    font-size: 25px;
+    text-align: left;
+    margin-left: 30px;
+    height: 50px;
+}
+
+.colorReview {
+    height: 30px;
+    background-color: #E9E7DD;
+}
+
+
+.review .author {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    text-align: left;
+}
+
+.review .author .avatar{
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.review .author .comment{
+    font-size: 15px;
+}
+
+.review .author .mainReview{
+    margin-left: 20px;
+}
+
+.review .author .mainReview .time{
+    font-size: 10px;
+    color: #919191;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.review .author .mainReview .authorName{
+    font-size: 20px;
+}
+
+.review .author .mainReview .rate{
+    color: #e8ae3e;
+}

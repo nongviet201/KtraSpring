@@ -20,7 +20,7 @@ public class Product {
     String description;
     @JsonProperty("thumbnail")
     String thumbnail;
-    int price;
+    Integer price;
     double rating;
     Integer priceDiscount;
     @JsonProperty("review")
