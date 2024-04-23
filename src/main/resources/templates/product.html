@@ -11,32 +11,36 @@
 
 </head>
 <body>
-<div id="container">
-        <div id="title"><h1>Danh Sách Smartphone</h1></div>
+<div id="title">
+    <div class="container"><h2>Smartphone</h2></div>
+</div>
+<div class="container">
+    <div id="tableContent">
         <div id="content">
-             <div th:each="product : ${pageData.getContent()}">
-                 <div class="divProduct" th:id="${product.getId()}">
-                     <div class="thumbnail"></div>
-                     <a th:href="|/product/get/detail/${product.getId()}|">
-                         <h4 class="name" th:text="${product.getName()}"></h4>
-                     </a>
-                     <div class="bottomTitle">
-                         <div class="divPrice">
-                             <div th:if="${product.getPriceDiscount() == null && product.getPriceDiscount() == 0}">
-                                 <span class="price" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></span>
-                             </div>
-                             <div th:if="${product.getPriceDiscount() != null && product.getPriceDiscount() != 0}">
-                                 <div class="price" th:text="${#numbers.formatDecimal(product.getPrice() - product.getPriceDiscount(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></div>
-                                 <div class="oldPrice" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></div>
-                             </div>
+            <div th:each="product : ${pageData.getContent()}">
+                <div class="divProduct" th:id="${product.getId()}">
+                    <div class="thumbnail"></div>
+                    <a th:href="|/product/get/detail/${product.getId()}|">
+                        <h4 class="name" th:text="${product.getName()}"></h4>
+                    </a>
+                    <div class="bottomTitle">
+                        <div class="divPrice">
+                            <div th:if="${product.getPriceDiscount() == null && product.getPriceDiscount() == 0}">
+                                <span class="price" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></span>
+                            </div>
+                            <div th:if="${product.getPriceDiscount() != null && product.getPriceDiscount() != 0}">
+                                <div class="price"><h4 th:text="${#numbers.formatDecimal(product.getPrice() - product.getPriceDiscount(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></h4></div>
+                                <div class="oldPrice"><h4 th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'POINT', 3, 'POINT').replaceAll('\\.0+$', '')}"></h4></div>
+                            </div>
 
-                         </div>
-                         <div class="rate">rate: <span class="point" th:text="|${product.getRating()}|"></span></div>
-                     </div>
+                        </div>
+                        <div class="rate">rate: <span class="point" th:text="|${product.getRating()}|"></span></div>
+                    </div>
 
-                 </div>
-             </div>
+                </div>
+            </div>
         </div>
+    </div>
 
         <div class="page">
             <ul style="display: flex; list-style-type: none" th:if="${pageData.getTotalPages() != 1}">

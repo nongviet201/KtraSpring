@@ -1,53 +1,79 @@
 * {
     font-family: roboto, serif;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    background-color: #F8F9FA;
 }
 
 body a {
     text-decoration: none;
+    color: black;
+    background-color: #F8F9FA;
 }
 
-#container {
+.container {
     text-align: center;
     padding: 0 350px !important;
 }
 
 #title {
+
+    height: 70px;
     display: flex;
-    justify-content: center;
-    background-color: #002c3e;
-    color: #F7F8F3;
+    justify-content: space-between;
+    background-color: #D70018;
+    color: #FBE6E8;
+}
+
+#title h2 {
+    margin-top: 7px;
+    font-size: 25px;
 }
 
 
 #content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 27px;
     justify-content: center;
-    height: 100%;
-    padding-top: 5%;
+    height: 90%;
+    padding: 2% 20px;
+}
+
+#tableContent {
+    height: 750px;
+    width: 100%;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
 }
 
 .divProduct {
-    height: 300px;
-    width: 100%;
+    height: 270px;
+    margin-left: 5%;
+    width: 90%;
     padding-bottom: 5%;
-    border: 1px gray solid;
-    border-radius: 10px;
-    /*border-radius: 10px;*/
+    box-shadow: 1px 0px 15px 1px rgba(0.1, 0, 0, 0.3);
+    border-radius: 20px;
+    background-color: #F8F9FA;
+
 }
 
 .divProduct .thumbnail {
-    height: 80%;
-    width: 100%;
+    height: 60%;
+    width: 80%;
     display: block;
-    background-color: gray;
+    background-color: #FBE6E8;
+    margin: 30px 20px 20px 20px;
 }
 
 .divProduct .name {
-    font-size: 15px;
+    font-size: 20px;
     margin: 5px;
+    text-align: left;
+    margin-left: 15px;
 }
 
 .divProduct .divPrice {
@@ -55,15 +81,15 @@ body a {
 }
 
 .divProduct .divPrice .price{
-    font-size: 17px;
-    color: red;
+    font-size: 20px;
+    color: #D70018;
 }
 
 .divProduct .divPrice .oldPrice{
-    font-size: 12px;
+    font-size: 13px;
     color: gray;
     text-decoration: line-through;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .divProduct .bottomTitle {
@@ -74,11 +100,11 @@ body a {
 
 .divProduct .bottomTitle .rate {
     margin-top: 12px;
-    color: #b3b345;
+    color: #EA9D02;
 }
 
 .divProduct .bottomTitle .rate .point {
-    color: #b3b345;
+    color: #EA9D02;
 }
 
 .page {

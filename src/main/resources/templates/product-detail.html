@@ -3,12 +3,16 @@
     <meta charset="UTF-8">
     <title>Product Detail</title>
     <link rel="stylesheet" th:href="@{/css/styleDetail.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
 </head>
 <body>
-    <div id="containerDetail">
-        <div id="title"><h1>THÔNG TIN SẢN PHẨM</h1></div>
-        <div class="colorDetail"></div>
-        <div id="detail">
+<div id="title">
+    <div class="container"><h2>Smartphone</h2></div>
+</div>
+<div class="colorDetail"></div>
+<div id="detail">
+    <div class="container">
+        <div class="insideDetail">
             <div class="divThumbnailDetail"><img th:src="${product.getThumbnail()}" alt=""></div>
             <div class="contentDetail">
                 <div class="topDetail">
@@ -23,32 +27,34 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="productDescreption" th:text="${product.getDescription()}"></div>
             </div>
         </div>
-        <div class="colorDetail"></div>
-        <div class="colorReview"></div>
-        <div id="divReview">
-            <div class="commentTitle">Đánh giá</div>
-            <div class="review">
-                <div th:each="review: ${product.getReviews()}">
-                    <div class="author">
-                        <div class="avatar"><img th:src="${review.getAuthorAvatar()}"></div>
-                        <div class="mainReview">
-                            <div>
-                                <span class="authorName" th:text="${review.getAuthorName()}"></span>
-                                <span class="time" th:text="${review.getCreatedAt()}"></span>
-                            </div>
-                            <div class="rate" th:text="|Rate: ${review.getRating()}|"></div>
-                            <div class="comment" th:text="${review.getContent()}"></div>
+    </div>
+</div>
+<div class="colorDetail"></div>
+<div class="colorReview"></div>
+<div id="divReview">
+    <div class="container">
+        <div class="commentTitle">Đánh giá</div>
+        <div class="review">
+            <div th:each="review: ${product.getReviews()}">
+                <div class="author">
+                    <div class="avatar"><img th:src="${review.getAuthorAvatar()}"></div>
+                    <div class="mainReview">
+                        <div>
+                            <span class="authorName" th:text="${review.getAuthorName()}"></span>
+                            <span class="time" th:text="${review.getCreatedAt()}"></span>
                         </div>
+                        <div class="rate" th:text="|Rate: ${review.getRating()}|"></div>
+                        <div class="comment" th:text="${review.getContent()}"></div>
                     </div>
-
                 </div>
             </div>
         </div>
-        <div class="colorReview"></div>
     </div>
+
+</div>
+<div class="colorReview"></div>
 </body>
 </html>
